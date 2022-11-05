@@ -1,4 +1,4 @@
-const todoList=require('../todos');
+const todoList=require('../todo');
 const{all,markAsComplete,add }= todoList;
 describe("To do list test suits", () => {
     beforeAll(() => {
