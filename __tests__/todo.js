@@ -2,33 +2,33 @@ const todoList=require('../todo');
 const{all,markAsComplete,add }= todoList;
 describe("To do list test suits", () => {
     beforeAll(() => {
-      const todayDate = new Date();
+      const today_Date = new Date();
       const oneDay = 86400000;
-      const yesterdayDate = new Date(todayDate.getTime() - 1 * oneDay);
-      const tomorrowDate = new Date(todayDate.getTime() + 1 * oneDay);
+      const yesterday_Date = new Date(todayDate.getTime() - 1 * oneDay);
+      const tomorrow_Date = new Date(todayDate.getTime() + 1 * oneDay);
   
-      const today = todayDate.toLocaleDateString("en-CA");
-      const yesterday = yesterdayDate.toLocaleDateString("en-CA");
-      const tomorrow = tomorrowDate.toLocaleDateString("en-CA");
+      const today = today_Date.toLocaleDateString("en-CA");
+      const yesterday = yesterday_Date.toLocaleDateString("en-CA");
+      const tomorrow = tomorrow_Date.toLocaleDateString("en-CA");
   
       todoList.add({
         title: "Pay internet Bill",
-        dueDate: yesterday,
+        dueDate: today,
         completed: true,
       });
       todoList.add({
         title: "Pay Telephone Bill",
-        dueDate: today,
+        dueDate: yesterday,
         completed: true,
       });
-      todoList.add({ title: "vahicle Service", dueDate: today, completed: false });
-      todoList.add({ title: "Test Assisgnemnt", dueDate: tomorrow, completed: false });
-      todoList.add({ title: "Online shopping", dueDate: tomorrow, completed: false });
+      todoList.add({ title: "ITR ", dueDate: today, completed: false });
+      todoList.add({ title: "Calling to mantor", dueDate: tomorrow, completed: false });
+      todoList.add({ title: "laptop repair", dueDate: tomorrow, completed: false });
     });
-    test("should add new todo", () => {
+    test("It should add new todo", () => {
       const todoItemCount = todoList.all.length;
       todoList.add({
-        title: "todo due today",
+        title: "cloth washing",
         completed: false,
         dueDate: new Date().toLocaleDateString("en-CA"),
       });
@@ -43,7 +43,7 @@ describe("To do list test suits", () => {
       const oneDay = 86400000;
       const existingOverdueItems = todoList.overdue();
       todoList.add({
-        title: "An overdue test item",
+        title: "An last Item",
         completed: false,
         dueDate: new Date(today.getTime() - 2 * oneDay).toLocaleDateString(
           "en-CA"
